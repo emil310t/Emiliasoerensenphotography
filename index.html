@@ -7,7 +7,7 @@
     <title>Emilia Sørensen Photography</title>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap"
         rel="stylesheet">
 
     <style>
@@ -58,6 +58,17 @@
             color: #666;
         }
 
+        .autograph {
+            position: absolute;
+            right: 20px;
+            top: 40%;
+            transform: translateY(-50%) rotate(-5deg);
+            max-width: 600px;
+            opacity: 1;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+
 
         /* hover effekt */
         .gallery {
@@ -77,6 +88,31 @@
             gap: 20px;
         }
 
+        .row.columns {
+            display: grid;
+            grid-template-columns: 1.3fr 0.9fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .row.columns .column,
+        .row.columns .column-stack {
+            display: grid;
+            width: 100%;
+        }
+
+        .row.columns .column-stack {
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .row.columns img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         /* stort billede */
         .row.full img {
             width: 100%;
@@ -87,8 +123,9 @@
         /* små billeder */
         .row.two img {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
+            display: block;
         }
 
         /* hover */
@@ -116,13 +153,52 @@
 
         .pricing-title {
             font-size: 36px;
-            margin-bottom: 60px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-quote {
+            font-family: 'Allura', cursive;
+            font-size: 24px;
+            font-style: normal;
+            margin: 0 auto 28px;
+            color: #222;
+            line-height: 1.15;
+            letter-spacing: 0.03em;
+            opacity: 0.96;
+            display: inline-block;
+            position: relative;
+            white-space: nowrap;
+            padding: 0 10px 8px;
+        }
+
+        .pricing-quote::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 120%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0.95) 90%, rgba(0, 0, 0, 0) 100%);
+            transform: translateX(-50%) rotate(-1deg);
+            opacity: 0.95;
+        }
+
+        .pricing-quote::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 3px;
+            width: 80%;
+            height: 0.6px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 0.5) 85%, rgba(0, 0, 0, 0) 100%);
+            transform: translateX(-50%) rotate(-1.5deg);
+            opacity: 0.55;
         }
 
         .pricing-container {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 5px;
             flex-wrap: wrap;
         }
 
@@ -201,8 +277,6 @@
             border-radius: 20px;
         }
 
-
-
         /* CTA */
         .cta {
             text-align: center;
@@ -260,13 +334,15 @@
     <section class="hero">
         <h1>Emilia Sørensen Photography</h1>
         <p>Equine portraits & lifestyle photography</p>
-        <br>
-        <p>Location: Sjælland, Denmark</p>
+        <p>Denmark</p>
+
+        <img src="logo.jpg" class="autograph">
 
     </section>
 
     <!-- PRICING -->
     <section class="pricing-section fade">
+        <p class="pricing-quote">its all about capturing the perfect moments and make them last forever</p>
         <h2 class="pricing-title">Pricing</h2>
 
         <div class="pricing-container">
@@ -275,7 +351,7 @@
                 <h3>Mini Package</h3>
                 <p class="price">600 kr</p>
                 <p>20–30 min</p>
-                <p>3 images</p>
+                <p>3 edited images</p>
                 <a href="https://instagram.com/emiliasoerensenphotography" class="btn-outline">Book</a>
             </div>
 
@@ -284,7 +360,7 @@
                 <h3>Standard Package</h3>
                 <p class="price">1.100 kr</p>
                 <p>1 hour</p>
-                <p>8 images</p>
+                <p>8 edited images</p>
                 <a href="https://instagram.com/emiliasoerensenphotography" class="btn-solid">Book</a>
             </div>
 
@@ -292,15 +368,94 @@
                 <h3>Premium Package</h3>
                 <p class="price">1.600 kr</p>
                 <p>1–1.5 hours</p>
-                <p>15 images</p>
+                <p>15 edited images</p>
                 <a href="https://instagram.com/emiliasoerensenphotography" class="btn-outline">Book</a>
             </div>
 
         </div>
     </section>
 
+    <!-- EXTRA INFO SECTION -->
+    <section class="extra-info">
+        <div class="container">
+
+            <div class="info-block">
+                <h3>Extra Images</h3>
+                <p>Additional images can be purchased after the photoshoot.</p>
+                <p class="price">1 image: 75 DKK</p>
+                <p class="price">5 images: 300 DKK</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Transport</h3>
+                <p>Travel within 10 km from Roskilde is included in the price.</p>
+                <p>For locations outside this area, a transportation fee may apply.</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Booking</h3>
+                <p>A deposit is required at the time of booking.</p>
+                <p>The remaining balance must be paid no later than the day of the photoshoot.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <style>
+        .extra-info {
+            margin-top: 0px;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 5px;
+        }
+
+        .info-block {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-block h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .info-block p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .price {
+            margin-top: 10px;
+            font-weight: 500;
+            color: #000;
+        }
+    </style>
+
     <!-- GALLERY -->
     <section class="gallery">
+
+        <!-- MID (1 stort billede) -->
+        <div class="row full">
+            <img src="image00006.jpeg">
+        </div>
 
         <!-- TOP (2 billeder) -->
         <div class="row two">
@@ -308,16 +463,33 @@
             <img src="image00002.jpeg">
         </div>
 
+        <!-- BUND (2 billeder) -->
+        <div class="row two">
+            <img src="image00003.jpeg">
+            <img src="image00004.jpeg">
+        </div>
+
+        <!-- BUND (2 billeder) -->
+        <div class="row two">
+            <img src="image00008.jpeg">
+            <img src="image00007.jpeg">
+        </div>
+
         <!-- MID (1 stort billede) -->
         <div class="row full">
             <img src="image00005.png">
         </div>
 
-        <!-- BUND (2 billeder) -->
-        <div class="row two">
-            <img src="image00006.jpeg">
-            <img src="image00007.jpeg">
+        <div class="row columns">
+            <div class="column">
+                <img src="image00011.jpeg">
+            </div>
+            <div class="column column-stack">
+                <img src="image00014.jpeg">
+                <img src="image00015.jpeg" alt="">
+            </div>
         </div>
+
 
     </section>
 

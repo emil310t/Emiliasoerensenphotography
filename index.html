@@ -139,8 +139,106 @@
 
         /* mobil */
         @media(max-width: 768px) {
-            .row.two {
+            .hero {
+                padding: 40px 20px;
+                height: auto;
+                min-height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .row.two,
+            .row.columns {
                 grid-template-columns: 1fr;
+            }
+
+            .row.columns .column-stack {
+                grid-template-rows: auto;
+            }
+
+            .row.full img,
+            .row.two img,
+            .row.columns img {
+                height: auto;
+                object-fit: cover;
+            }
+
+            .pricing-section {
+                padding: 30px 16px 40px;
+            }
+
+            .pricing-title {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .pricing-quote {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                font-size: 20px;
+                line-height: 1.5;
+                white-space: normal;
+                overflow-wrap: break-word;
+                word-break: break-word;
+                text-align: center;
+                padding: 0 12px 12px;
+            }
+
+            .pricing-quote::after,
+            .pricing-quote::before {
+                width: 100%;
+            }
+
+            .pricing-container {
+                gap: 15px;
+            }
+
+            .pricing-card {
+                width: 100%;
+                max-width: 100%;
+                padding: 30px 20px;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            }
+
+            .pricing-card h3 {
+                font-size: 20px;
+            }
+
+            .price {
+                font-size: 24px;
+            }
+
+            .pricing-card p,
+            .btn-outline,
+            .btn-solid {
+                font-size: 14px;
+            }
+
+            .gallery {
+                gap: 16px;
+            }
+
+            .cta {
+                padding: 40px 16px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            .cta a {
+                padding: 14px 26px;
+            }
+
+            .contact {
+                padding: 20px 16px 40px;
             }
         }
 
@@ -343,6 +441,9 @@
     <!-- PRICING -->
     <section class="pricing-section fade">
         <p class="pricing-quote">its all about capturing the perfect moments and make them last forever</p>
+        <br>
+        <br>
+        <br>
         <h2 class="pricing-title">Pricing</h2>
 
         <div class="pricing-container">
@@ -392,10 +493,13 @@
                 <p>For locations outside this area, a transportation fee may apply.</p>
             </div>
 
-            <div class="info-block">
+            <div class="info-block booking-block">
                 <h3>Booking</h3>
                 <p>A deposit is required at the time of booking.</p>
                 <p>The remaining balance must be paid no later than the day of the photoshoot.</p>
+                <br>
+                <br>
+
             </div>
 
         </div>
@@ -412,8 +516,14 @@
             max-width: 1000px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 5px;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .booking-block {
+            grid-column: 1 / -1;
+            justify-self: center;
+            max-width: 560px;
         }
 
         .info-block {

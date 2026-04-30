@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilia Sørensen Photography</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f7f5;
+            color: #111;
+            overflow-x: hidden;
+        }
+
+        /* TYPO */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+
+        /* GLOBAL */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 20px;
+        }
+
+        /* HERO */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            margin-top: 10px;
+            color: #666;
+        }
+
+
+        /* hover effekt */
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        /* 2 billeder ved siden af hinanden */
+        .row.two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* stort billede */
+        .row.full img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* små billeder */
+        .row.two img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        /* hover */
+        .gallery img {
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        /* mobil */
+        @media(max-width: 768px) {
+            .row.two {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* PRICING */
+
+        .pricing-section {
+            padding: 20px 20px 60px;
+            text-align: center;
+        }
+
+        .pricing-title {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            width: 280px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .pricing-card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .price {
+            font-size: 28px;
+            margin: 15px 0;
+        }
+
+        .pricing-card p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .btn-outline,
+        .btn-solid {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid black;
+            color: black;
+        }
+
+        .btn-outline:hover {
+            background: black;
+            color: white;
+        }
+
+        .btn-solid {
+            background: black;
+            color: white;
+        }
+
+        .btn-solid:hover {
+            opacity: 0.8;
+        }
+
+        /* FEATURED CARD */
+        .featured {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: black;
+            color: white;
+            padding: 5px 12px;
+            font-size: 12px;
+            border-radius: 20px;
+        }
+
+
+
+        /* CTA */
+        .cta {
+            text-align: center;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            border: 1px solid #111;
+            text-decoration: none;
+            color: #111;
+            transition: 0.3s;
+        }
+
+        .cta a:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            color: #555;
+        }
+
+        /* ANIMATION */
+        .fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s ease;
+        }
+
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MOBILE */
+        @media(max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="hero fade">
+        <h1>Emilia Sørensen Photography</h1>
+        <p>Equine portraits & lifestyle photography</p>
+        <br>
+        <p>Location: Sjælland, Denmark</p>
+
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section">
+        <h2 class="pricing-title">Pricing</h2>
+
+        <div class="pricing-container">
+
+            <div class="pricing-card">
+                <h3>Mini Package</h3>
+                <p class="price">600 kr</p>
+                <p>20–30 min</p>
+                <p>3 images</p>
+                <a href="https://instagram.com/emiliasoerensenphotography" class="btn-outline">Book</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="badge">Most popular</div>
+                <h3>Standard Package</h3>
+                <p class="price">1.100 kr</p>
+                <p>1 hour</p>
+                <p>8 images</p>
+                <a href="https://instagram.com/emiliasoerensenphotography" class="btn-solid">Book</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Premium Package</h3>
+                <p class="price">1.600 kr</p>
+                <p>1–1.5 hours</p>
+                <p>15 images</p>
+                <a href="https://instagram.com/emiliasoerensenphotography" class="btn-outline">Book</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+
+        <!-- TOP (2 billeder) -->
+        <div class="row two">
+            <img src="image00001.jpeg">
+            <img src="image00002.jpeg">
+        </div>
+
+        <!-- MID (1 stort billede) -->
+        <div class="row full">
+            <img src="image00005.png">
+        </div>
+
+        <!-- BUND (2 billeder) -->
+        <div class="row two">
+            <img src="image00006.jpeg">
+            <img src="image00007.jpeg">
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+    <section class="cta fade">
+        <h2>Booking</h2>
+
+        <a href="https://instagram.com/emiliasoerensenphotography" target="_blank">
+            Book via Instagram
+        </a>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact fade">
+        <p>@emiliasoerensenphotography</p>
+    </section>
+
+    <script>
+
+        /* FADE IN ON SCROLL */
+        const faders = document.querySelectorAll('.fade');
+
+        window.addEventListener('scroll', () => {
+            faders.forEach(el => {
+                const rect = el.getBoundingClientRect().top;
+                if (rect < window.innerHeight - 100) {
+                    el.classList.add('show');
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
